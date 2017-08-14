@@ -43,7 +43,7 @@ public class LocationService implements ILocationService{
 
     @Override
     public Location getLocationByName(String name) {
-        return null;
+        return locationRepository.findOneByName(name);
     }
 
     @Override
@@ -53,6 +53,6 @@ public class LocationService implements ILocationService{
 
     @Override
     public List<Location> getLocationsByCoordinates(String coordinates) {
-        return null;
+        return locationRepository.findAllByCoordinates(coordinates);
     }
 }

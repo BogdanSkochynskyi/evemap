@@ -39,27 +39,27 @@ public class AddressService implements IAddressService {
 
     @Override
     public List<Address> getListOfAddressesByCityName(String cityName) {
-        return null;
+        return addressRepository.findAllByCityName(cityName);
     }
 
     @Override
     public List<Address> getListOfAddressesByStateName(String stateName) {
-        return null;
+        return addressRepository.findAllByStateName(stateName);
     }
 
     @Override
     public List<Address> getListOfAddressesByCountryName(String countryName) {
-        return null;
+        return addressRepository.findAllByCountryName(countryName);
     }
 
     @Override
     public List<Address> getListOfAddressesByStreetName(String streetName) {
-        return null;
+        return addressRepository.findAllByStreetName(streetName);
     }
 
     @Override
     public List<Address> getListOfAddressesByBuildingNumber(String buildingNumber) {
-        return null;
+        return addressRepository.findAllByBuildingNumber(buildingNumber);
     }
 
     @Override

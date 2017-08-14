@@ -44,11 +44,11 @@ public class UserService implements IUserService {
 
     @Override
     public User getUserByEMail(String eMail) {
-        return null;
+        return userRepository.findOneByEMail(eMail);
     }
 
     @Override
     public User getUserByLogin(String login) {
-        return null;
+        return userRepository.findOneByLogin(login);
     }
 }
