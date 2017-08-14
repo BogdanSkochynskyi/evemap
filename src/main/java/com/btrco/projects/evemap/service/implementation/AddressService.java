@@ -1,37 +1,40 @@
 package com.btrco.projects.evemap.service.implementation;
 
 import com.btrco.projects.evemap.model.Address;
+import com.btrco.projects.evemap.repository.AddressRepository;
 import com.btrco.projects.evemap.service.IAddressService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by BTRco on 13.08.2017.
  */
-public class AdressService implements IAddressService {
+@Service
+public class AddressService implements IAddressService {
+
+    @Autowired
+    private AddressRepository addressRepository;
+
     @Override
     public Address addAddress(Address address) {
-        return null;
+        return addressRepository.saveAndFlush(address);
     }
 
     @Override
     public List<Address> getListOfAddresses() {
-        return null;
+        return addressRepository.findAll();
     }
 
     @Override
-    public List<Address> getListOfAddresses(int firstRow, int lastRow) {
-        return null;
+    public Address updateAddress(Address address) {
+        return addressRepository.saveAndFlush(address);
     }
 
     @Override
-    public boolean updateAddress(Address address) {
-        return false;
-    }
-
-    @Override
-    public boolean deleteAddress(Address address) {
-        return false;
+    public void deleteAddress(Address address) {
+        addressRepository.delete(address);
     }
 
     @Override
@@ -60,7 +63,7 @@ public class AdressService implements IAddressService {
     }
 
     @Override
-    public Address getAddressById(int id) {
-        return null;
+    public Address getAddressById(long id) {
+        return addressRepository.findOne(id);
     }
 }

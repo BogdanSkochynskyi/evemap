@@ -13,11 +13,9 @@ public interface IAddressService {
 
     List<Address> getListOfAddresses();
 
-    List<Address> getListOfAddresses(int firstRow, int lastRow);
+    Address updateAddress(Address address);
 
-    boolean updateAddress(Address address);
-
-    boolean deleteAddress(Address address);
+    void deleteAddress(Address address);
 
     List<Address> getListOfAddressesByCityName(String cityName);
 
@@ -29,6 +27,6 @@ public interface IAddressService {
 
     List<Address> getListOfAddressesByBuildingNumber(String buildingNumber);
 
-    Address getAddressById(int id);
+    Address getAddressById(long id);
 
 }

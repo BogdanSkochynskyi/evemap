@@ -13,13 +13,11 @@ public interface IUserService {
 
     List<User> getListOfUsers();
 
-    List<User> getListOfUsers(int firstRow, int lastRow);
+    User updateUser(User user);
 
-    boolean updateUser(User user);
+    void deleteUser(User user);
 
-    boolean deleteUser(User user);
-
-    User getUserById(int id);
+    User getUserById(long id);
 
     User getUserByEMail(String eMail);
 

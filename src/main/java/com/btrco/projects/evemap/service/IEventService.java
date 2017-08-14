@@ -16,13 +16,11 @@ public interface IEventService {
 
     List<Event> getListOfEvents();
 
-    List<Event> getListOfEvents(int firstRow, int lastRow);
+    Event updateEvent(Event event);
 
-    boolean updateEvent(Event event);
+    void deleteEvent(Event event);
 
-    boolean deleteEvent(Event event);
-
-    Event getEventById(int id);
+    Event getEventById(long id);
 
     Event getEventByName(String event);
 

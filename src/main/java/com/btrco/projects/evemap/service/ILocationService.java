@@ -13,15 +13,13 @@ public interface ILocationService {
 
     List<Location> gerListOfLocations();
 
-    List<Location> gerListOfLocations(int firstRow, int lastRow);
+    Location updateLocation(Location location);
 
-    boolean updateLocation(Location location);
-
-    boolean deleteLocation(Location location);
+    void deleteLocation(Location location);
 
     Location getLocationByName(String name);
 
-    Location getLocationById(int id);
+    Location getLocationById(long id);
 
     List<Location> getLocationsByCoordinates(String coordinates);
 
