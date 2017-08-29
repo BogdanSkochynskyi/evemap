@@ -4,9 +4,6 @@ import com.btrco.projects.evemap.model.Location;
 
 import java.util.List;
 
-/**
- * Created by BTRco on 13.08.2017.
- */
 public interface ILocationService {
 
     Location addLocation(Location location);
@@ -17,10 +14,10 @@ public interface ILocationService {
 
     void deleteLocation(Location location);
 
-    Location getLocationByName(String name);
+//    Location getLocationByName(String name);
 
     Location getLocationById(long id);
 
-    List<Location> getLocationsByCoordinates(String coordinates);
+//    List<Location> getLocationsByCoordinates(String coordinates);
 
 }

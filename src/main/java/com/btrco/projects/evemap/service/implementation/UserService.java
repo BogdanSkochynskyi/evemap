@@ -1,16 +1,15 @@
 package com.btrco.projects.evemap.service.implementation;
 
+import com.btrco.projects.evemap.model.Address;
 import com.btrco.projects.evemap.model.User;
 import com.btrco.projects.evemap.repository.UserRepository;
 import com.btrco.projects.evemap.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by BTRco on 13.08.2017.
- */
 @Service
 public class UserService implements IUserService {
 
@@ -19,17 +18,19 @@ public class UserService implements IUserService {
 
     @Override
     public User addUser(User user) {
-        return userRepository.saveAndFlush(user);
+        return userRepository.save(user);
     }
 
     @Override
     public List<User> getListOfUsers() {
-        return userRepository.findAll();
+        List<User> users = new ArrayList<>();
+        userRepository.findAll().forEach(users :: add);
+        return users;
     }
 
     @Override
     public User updateUser(User user) {
-        return userRepository.saveAndFlush(user);
+        return userRepository.save(user);
     }
 
     @Override
@@ -42,13 +43,13 @@ public class UserService implements IUserService {
         return userRepository.findOne(id);
     }
 
-    @Override
-    public User getUserByEMail(String eMail) {
-        return userRepository.findOneByEMail(eMail);
-    }
-
-    @Override
-    public User getUserByLogin(String login) {
-        return userRepository.findOneByLogin(login);
-    }
+//    @Override
+//    public User getUserByEMail(String eMail) {
+//        return userRepository.findByEMail(eMail);
+//    }
+//
+//    @Override
+//    public User getUserByLogin(String login) {
+//        return userRepository.findByLogin(login);
+//    }
 }

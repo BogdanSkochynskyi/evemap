@@ -4,9 +4,6 @@ import com.btrco.projects.evemap.model.Address;
 
 import java.util.List;
 
-/**
- * Created by BTRco on 13.08.2017.
- */
 public interface IAddressService {
 
     Address addAddress(Address address);
@@ -17,15 +14,15 @@ public interface IAddressService {
 
     void deleteAddress(Address address);
 
-    List<Address> getListOfAddressesByCityName(String cityName);
-
-    List<Address> getListOfAddressesByStateName(String stateName);
-
-    List<Address> getListOfAddressesByCountryName(String countryName);
-
-    List<Address> getListOfAddressesByStreetName(String streetName);
-
-    List<Address> getListOfAddressesByBuildingNumber(String buildingNumber);
+//    List<Address> getListOfAddressesByCityName(String cityName);
+//
+//    List<Address> getListOfAddressesByStateName(String stateName);
+//
+//    List<Address> getListOfAddressesByCountryName(String countryName);
+//
+//    List<Address> getListOfAddressesByStreetName(String streetName);
+//
+//    List<Address> getListOfAddressesByBuildingNumber(String buildingNumber);
 
     Address getAddressById(long id);
 

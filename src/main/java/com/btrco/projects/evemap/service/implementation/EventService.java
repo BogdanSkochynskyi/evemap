@@ -9,11 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by BTRco on 13.08.2017.
- */
 @Service
 public class EventService implements IEventService {
 
@@ -22,17 +20,19 @@ public class EventService implements IEventService {
 
     @Override
     public Event addEvent(Event event) {
-        return eventRepository.saveAndFlush(event);
+        return eventRepository.save(event);
     }
 
     @Override
     public List<Event> getListOfEvents() {
-        return eventRepository.findAll();
+        List<Event> events = new ArrayList<>();
+        eventRepository.findAll().forEach(events :: add);
+        return events;
     }
 
     @Override
     public Event updateEvent(Event event) {
-        return eventRepository.saveAndFlush(event);
+        return eventRepository.save(event);
     }
 
     @Override
@@ -45,24 +45,24 @@ public class EventService implements IEventService {
         return eventRepository.findOne(id);
     }
 
-    @Override
-    public Event getEventByName(String event) {
-        return eventRepository.findOneByName(event);
-    }
-
-    @Override
-    public List<Event> getEventsByDate(LocalDateTime dateTime) {
-        //TODO: find by date only
-        return eventRepository.findAllByDate(dateTime);
-    }
-
-    @Override
-    public List<Event> getEventsByCreator(User creator) {
-        return eventRepository.findAllByCreator(creator);
-    }
-
-    @Override
-    public List<Event> getEventsByLocation(Location location) {
-        return eventRepository.findAllByLocation(location);
-    }
+//    @Override
+//    public Event getEventByName(String event) {
+//        return eventRepository.findByName(event);
+//    }
+//
+//    @Override
+//    public List<Event> getEventsByDate(LocalDateTime dateTime) {
+//        //TODO: find by date only
+//        return eventRepository.findByDate(dateTime);
+//    }
+//
+//    @Override
+//    public List<Event> getEventsByCreator(User creator) {
+//        return eventRepository.findByCreator(creator);
+//    }
+//
+//    @Override
+//    public List<Event> getEventsByLocation(Location location) {
+//        return eventRepository.findByLocation(location);
+//    }
 }

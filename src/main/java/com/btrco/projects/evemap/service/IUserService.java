@@ -4,9 +4,6 @@ import com.btrco.projects.evemap.model.User;
 
 import java.util.List;
 
-/**
- * Created by BTRco on 13.08.2017.
- */
 public interface IUserService {
 
     User addUser(User user);
@@ -19,9 +16,9 @@ public interface IUserService {
 
     User getUserById(long id);
 
-    User getUserByEMail(String eMail);
-
-    User getUserByLogin(String login);
+//    User getUserByEMail(String eMail);
+//
+//    User getUserByLogin(String login);
 
     //TODO: add get list of users by role
 

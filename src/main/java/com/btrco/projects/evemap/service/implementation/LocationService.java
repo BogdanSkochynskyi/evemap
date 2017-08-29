@@ -1,20 +1,15 @@
 package com.btrco.projects.evemap.service.implementation;
 
-import com.btrco.projects.evemap.model.Event;
+import com.btrco.projects.evemap.model.Address;
 import com.btrco.projects.evemap.model.Location;
-import com.btrco.projects.evemap.model.User;
 import com.btrco.projects.evemap.repository.LocationRepository;
-import com.btrco.projects.evemap.service.IEventService;
 import com.btrco.projects.evemap.service.ILocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by BTRco on 13.08.2017.
- */
 @Service
 public class LocationService implements ILocationService{
 
@@ -23,17 +18,19 @@ public class LocationService implements ILocationService{
 
     @Override
     public Location addLocation(Location location) {
-        return locationRepository.saveAndFlush(location);
+        return locationRepository.save(location);
     }
 
     @Override
     public List<Location> gerListOfLocations() {
-        return locationRepository.findAll();
+        List<Location> locations = new ArrayList<>();
+        locationRepository.findAll().forEach(locations :: add);
+        return locations;
     }
 
     @Override
     public Location updateLocation(Location location) {
-        return locationRepository.saveAndFlush(location);
+        return locationRepository.save(location);
     }
 
     @Override
@@ -41,18 +38,18 @@ public class LocationService implements ILocationService{
         locationRepository.delete(location);
     }
 
-    @Override
-    public Location getLocationByName(String name) {
-        return locationRepository.findOneByName(name);
-    }
+//    @Override
+//    public Location getLocationByName(String name) {
+//        return locationRepository.findByName(name);
+//    }
 
     @Override
     public Location getLocationById(long id) {
         return locationRepository.findOne(id);
     }
 
-    @Override
-    public List<Location> getLocationsByCoordinates(String coordinates) {
-        return locationRepository.findAllByCoordinates(coordinates);
-    }
+//    @Override
+//    public List<Location> getLocationsByCoordinates(String coordinates) {
+//        return locationRepository.findByCoordinates(coordinates);
+//    }
 }

@@ -1,29 +1,20 @@
 package com.btrco.projects.evemap.repository;
 
 import com.btrco.projects.evemap.model.Address;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-/**
- * Created by BTRco on 14.08.2017.
- */
-public interface AddressRepository extends JpaRepository<Address, Long> {
+public interface AddressRepository extends MongoRepository<Address, Long> {
 
-    @Query("SELECT a FROM address a WHERE a.city = :city")
-    List<Address> findAllByCityName(@Param("city") String city);
+    List<Address> findAllByCity(String city);
 
-    @Query("SELECT a FROM address a WHERE a.state = :state")
-    List<Address> findAllByStateName(@Param("state") String state);
+    List<Address> findByState(String state);
 
-    @Query("SELECT a FROM address a WHERE a.country = :country")
-    List<Address> findAllByCountryName(@Param("country") String country);
+    List<Address> findByCountry(String country);
 
-    @Query("SELECT a FROM address a WHERE a.street = :street")
-    List<Address> findAllByStreetName(@Param("street") String street);
+    List<Address> findByStreet(String street);
 
-    @Query("SELECT a FROM address a WHERE a.buildingNumber = :buildingNumber")
-    List<Address> findAllByBuildingNumber(@Param("buildingNumber") String buildingNumber);
+    List<Address> findByBuildingNumber(String buildingNumber);
 }

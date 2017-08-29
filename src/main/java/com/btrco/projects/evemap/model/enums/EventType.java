@@ -1,9 +1,5 @@
 package com.btrco.projects.evemap.model.enums;
 
-/**
- * Created by BTRco on 13.08.2017.
- */
-
 public enum EventType {
     TYPE1,
     TYPE2,
